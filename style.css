@@ -1,0 +1,489 @@
+/* Bagian CSS dari website DailyBoard */
+
+:root {
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: #eff6ff;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --text-muted: #6b7280;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 20px -8px rgba(15, 23, 42, 0.14);
+  --transition: 160ms ease;
+
+  --header-h: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+  overflow: hidden; 
+}
+
+/* dm */
+body.dark-mode {
+  --bg: #0f1420;
+  --surface: #171d2b;
+  --surface-muted: #1f2636;
+  --border: #2a3244;
+  --text: #e5e7eb;
+  --text-muted: #9aa4b2;
+  --accent-soft: #1c2340;
+}
+
+/* header */
+.header {
+  flex: 0 0 var(--header-h);
+  height: var(--header-h);
+  background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+  color: #fff;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.header hr {
+  display: none; 
+}
+
+#toggle-tema {
+  margin-left: auto;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color var(--transition);
+}
+
+#toggle-tema:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+main#app {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: auto minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "judul  judul"
+    "tugas  catatan"
+    "tugas  cuaca";
+  gap: 14px;
+  padding: 14px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main#app > h2 {
+  grid-area: judul;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 2px 4px;
+}
+
+#tugas    { grid-area: tugas; min-height: 0; }
+#catatan  { grid-area: catatan; min-height: 0; }
+#cuaca    { grid-area: cuaca; min-height: 0; }
+
+section {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  min-height: 0;
+  overflow: hidden;
+  transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+section h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  flex: 0 0 auto;
+}
+
+/* elemen form */
+input,
+textarea,
+button {
+  font-family: inherit;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  background-color: var(--surface);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition),
+              background-color var(--transition), transform var(--transition);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background-color: var(--surface-muted);
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+button {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* tugas */
+#tugas {
+  overflow: hidden;
+}
+
+#input-tugas {
+  width: 100%;
+}
+
+#cari-tugas {
+  width: 100%;
+}
+
+#filter-container {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+#filter-container button {
+  flex: 1;
+  background-color: var(--surface-muted);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+}
+
+#filter-container button:hover {
+  background-color: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+#daftar-tugas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+#daftar-tugas::-webkit-scrollbar,
+#daftar-catatan::-webkit-scrollbar {
+  width: 5px;
+}
+
+#daftar-tugas::-webkit-scrollbar-thumb,
+#daftar-catatan::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 999px;
+}
+
+.tugas-item {
+  background-color: var(--surface-muted);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  cursor: grab;
+  flex-shrink: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.tugas-item:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateX(2px);
+}
+
+.tugas-item:active {
+  cursor: grabbing;
+}
+
+.tugas-item span {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  font-size: 0.85rem;
+}
+
+.tugas-item input[type="text"] {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+}
+
+.tugas-item button {
+  background-color: var(--danger);
+  font-size: 0.7rem;
+  padding: 5px 9px;
+  flex-shrink: 0;
+}
+
+.tugas-item button:hover {
+  background-color: var(--danger-hover);
+}
+
+/* catatan */
+#catatan {
+  overflow: hidden;
+}
+
+#form-catatan {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+#input-catatan {
+  resize: none;
+  min-height: 44px;
+  max-height: 44px;
+  width: 100%;
+}
+
+#daftar-catatan {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.catatan-item {
+  background-color: #fffbeb;
+  color: #78350f;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #fde68a;
+  flex-shrink: 0;
+}
+
+.catatan-item p {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+body.dark-mode .catatan-item {
+  background-color: #3a2c12;
+  color: #fde68a;
+  border-color: #5c4515;
+}
+
+.catatan-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catatan-footer small {
+  color: inherit;
+  opacity: 0.75;
+  font-size: 0.68rem;
+}
+
+.btn-hapus-catatan {
+  background-color: var(--danger);
+  padding: 3px 9px;
+  font-size: 0.68rem;
+}
+
+.btn-hapus-catatan:hover {
+  background-color: var(--danger-hover);
+}
+
+/* bagian cuaca dan kutipan */
+#cuaca {
+  background: linear-gradient(180deg, var(--accent-soft) 0%, var(--surface) 65%);
+}
+
+#status-widget {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+#kutipan-harian {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+  padding: 4px 0 8px;
+  border-bottom: 1px dashed var(--border);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#form-cuaca {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+#input-kota {
+  flex: 1;
+  min-width: 0;
+}
+
+#info-cuaca {
+  font-size: 0.8rem;
+  padding: 4px 0;
+}
+
+#info-cuaca strong {
+  font-size: 0.95rem;
+}
+
+/* state kosong */
+.empty-state {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 14px 10px;
+  margin: auto 0;
+}
+
+/* footer */
+footer {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 6px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+ /* overall */
+@media (max-width: 860px) {
+  body {
+    overflow: auto;
+  }
+
+  main#app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "judul"
+      "tugas"
+      "catatan"
+      "cuaca";
+    max-width: 100%;
+  }
+
+  #tugas,
+  #catatan,
+  #cuaca {
+    max-height: 340px;
+  }
+
+  .header {
+    height: auto;
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  #filter-container {
+    flex-wrap: wrap;
+  }
+
+  #filter-container button {
+    flex: 1 1 30%;
+  }
+
+  #form-cuaca {
+    flex-direction: column;
+  }
+}
