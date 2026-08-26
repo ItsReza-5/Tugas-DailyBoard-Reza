@@ -5,7 +5,7 @@
 </div>
 
 ## :computer: About Web
-<p> Web DailyBoard ialah suatu web keseharian
+<p> DailyBoard adalah aplikasi produktivitas sederhana berbasis HTML, CSS, dan JavaScript yang digunakan untuk mengelola tugas dan catatan sehari-hari.
 </p>
 
 ## :round_pushpin: Fitur Fitur 
