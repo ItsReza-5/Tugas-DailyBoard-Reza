@@ -35,8 +35,8 @@ DailyBoard adalah aplikasi dasbor harian (daily dashboard) berbasis web interakt
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **HTML5** - Struktur aplikakasi
-- **CSS3** - Desain UI 
+- **HTML** - Struktur aplikakasi
+- **CSS** - Desain UI 
 - **JavaScript**
 - **Web APIs:**
   - [OpenWeatherMap API]
