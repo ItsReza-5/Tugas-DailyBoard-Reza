@@ -1,5 +1,5 @@
 <div align="center">
-    <h1> READ ME</h1>
+    <h1> README</h1>
     <img src="https://github.com/MDafaAzharya/Web_Productive/assets/125567760/e4763a6a-6167-45a4-997c-7c24c0e6f6f7" alt="" style="width:100px;">
     <p> WEB DailyBoard</p>
 </div>
