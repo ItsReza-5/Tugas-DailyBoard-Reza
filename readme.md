@@ -1,52 +1,56 @@
-<div align="center">
-    <h1> README</h1>
-    <img src="https://github.com/MDafaAzharya/Web_Productive/assets/125567760/e4763a6a-6167-45a4-997c-7c24c0e6f6f7" alt="" style="width:100px;">
-    <p> WEB DailyBoard</p>
-</div>
+# DailyBoard 📌
 
-## :computer: About Web
-<p> DailyBoard adalah aplikasi produktivitas sederhana berbasis HTML, CSS, dan JavaScript yang digunakan untuk mengelola tugas dan catatan sehari-hari.
-</p>
+DailyBoard adalah aplikasi dasbor harian (daily dashboard) berbasis web interaktif yang dirancang untuk membantu meningkatkan produktivitas harian pengguna. Aplikasi ini menggabungkan manajemen tugas, pencatatan cepat, pemantauan cuaca real-time, dan kutipan motivasi harian dalam satu antarmuka yang bersih dan responsif
 
-## :round_pushpin: Fitur Fitur 
-- :dart: To Do List
-- :world_map: Road Map
-- :bookmark_tabs: Note
+---
 
-## :gear: Tools
-- HTML
-- CSS
-- JavaScript
+## 🚀 Fitur Utama
 
-## 	:card_index_dividers: Installation
-- Instal XAMPP
-- Buka XAMPP, lalu start [apache] dan [mysql]
-- unduh source code folder
-- buka tautan localhost/phpmyadmin di mesin pencarian (chrome,firefox,dll)
-- klik baru dibagian navigasi samping home phpmyadmin
-- klik import pada navigasi bar
-- browse file di dalam folder database, namanya productive.sql
-- buka mesin pencari ketikan http://localhost/namafolder
-- Register lalu login
+- 📝 **Manajemen Tugas (To-Do List)**
+  - Menambahkan, mengedit, dan menghapus tugas harian.
+  - Menandai status tugas (selesai / belum selesai).
+  - Filter tugas berdasarkan status (*Semua*, *Selesai*, *Belum Selesai*).
+  - Pencarian tugas secara real-time.
+  - Dukungan **Drag & Drop**
+
+- ✍️ **Catatan Cepat**
+  - Membuat dan menyimpan catatan singkat.
+  - Mengedit dan menghapus catatan yang ada.
+  - Mencatat tanggal pembuatan catatan secara otomatis.
+
+- 🌤️ **Widget Cuaca Real-Time**
+  - Integrasi API OpenWeatherMap untuk menampilkan informasi cuaca terkini (suhu & kondisi).
+  - Pencarian cuaca berdasarkan nama kota (Default: Jakarta).
+
+- 💡 **Kutipan Inspiratif Harian**
+  - Mengambil kutipan secara acak dari DummyJSON API
+  - Fitur perbarui (*refresh*) untuk memuat kutipan baru kapan saja
+
+- 🌙 **Mode Gelap & Terang (Dark Mode)**
+  - Sakelar tema visual yang nyaman di mata
+  - Preferensi tema disimpan secara otomatis
+
+- 💾 **Persistensi Data (LocalStorage)**
+  - Seluruh data tugas, catatan, dan tema tersimpan secara lokal di peramban (browser) pengguna, sehingga data tidak hilang saat halaman dimuat ulang
+
+## 🛠️ Teknologi yang Digunakan
+
+- **HTML5** - Struktur aplikakasi
+- **CSS3** - Desain UI 
+- **JavaScript**
+- **Web APIs:**
+  - [OpenWeatherMap API]
+  - [DummyJSON Quotes API]
+  - Browser LocalStorage API 
 
 
-## checklist fitur 
-[x] Kutipan hari ini muncul mengambil dari API
-[x] Tombol refresh kutipan bekerja
-[x] Fitur tambah tugas sudah muncul di dalam list tugas
-[x] List tugas sudah muncul ketika fitur/tombol tambah tugas ditekan
-[x] Fitur cari tugas sudah bekerja sesuai dengan list tugas yang ditambahkan 
-[x] Fitur filter semua,belum selesai,dan selesai tugas sudah berfungsi sesuai list tugas dan tugas yang sudah di tambahkan 
-[x] Fitur peringatan untuk mengisi input sudah bekerja 
-[x] Fitur peringatan hanya bisa menginput 100 karakter sudah bekerja 
-[x] Fitur hapus tugas sudah bekerja
-[x] Fitur edit tugas sudah bekerja 
-[x] Fitur tambah catatan sudah bekerja 
-[x] Fitur simpan catatan sudah bekerja
-[x] Catatan sudah masuk kedalam section catatan sebagai list catatan
-[x] Tanggal dan waktu ketika catatan dibuat sudah ada
-[x] Fitur edit catatan sudah bekerja
-[x] Fitur hapus catatan sudah bekerja 
-[x] Fitur kutipan hari ini sudah berfungsi mengambil dari API
-[x] Fitur dark mode sudah bekerja 
-[x] Fitur drag and drop sudah bekerja 
+
+## 📂 Struktur Berkas
+
+```text
+├── index.html     # Berkas utama HTML dan pemuatan skrip
+├── style.css      # Desain antarmuka, tata letak Grid/Flexbox & variabel tema
+├── tugas.js       # Logika fitur manajemen tugas (To-Do List, Filter, Pencarian)
+├── catatan.js     # Logika fitur catatan cepat (CRUD Catatan)
+├── api.js         # Pengambilan data API (Cuaca & Kutipan), Drag & Drop, & Mode Gelap
+└── storage.js     # Pembentukan DOM awal, layout section, & inisialisasi awal
